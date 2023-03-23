@@ -12,6 +12,7 @@
         />
         <meta name=“robots” content=“noindex, nofollow”>
         <title>Axiom</title>
+        <script src="https://cdn.jsdelivr.net/npm/base-58@0.0.1/Base58.min.js"></script>
         <style>
             .wrapper {
                 position: relative;
@@ -45,33 +46,12 @@
     </head>
 
     <script type="text/javascript">
-        let user;
 
-        function onTelegramAuth(user) {
-            user = user;
-
-            const newDiv = document.createElement('div');
-
-            const userString = 'Logged in as ' +
-                    user.first_name +
-                    ' ' +
-                    user.last_name +
-                    ' (' +
-                    user.id +
-                    (user.username ? ', @' + user.username : '') +
-                    ')';
-
-            const newContent = newDiv.innerHTML = userString;
-
-            document.body.appendChild(newDiv);
-
-            console.log(userString);
-        }
     </script>
     <body>
-        <img src="img/black-Space-Drops-Logotype.png" width="441" length="198"/>
+        <img src="/src/img/black-Space-Drops-Logotype.png" width="441" length="198"/>
         <h1>Найди свое место во вселенной!</h1>
-        
+
 <!--
         <div class="wrapper">
              <button class="auth-btn">ПОЕХАЛИ!</button>
@@ -81,7 +61,7 @@
 
         <table cellspacing="0">
             <tr>
-             <td>РЕЙС</td><td>#TR300_123456</td>
+             <td>РЕЙС</td><td>#TR300_<span id="users-count"></span></td>
             </tr>
             <tr>
              <td>ДАТА ВЫЛЕТА</td><td>[уточняется]</td>
@@ -102,10 +82,11 @@
              <td><img scr="img/video_player_mock.png"/></td>
             </tr>
         </table>
-        
-  
-        
+
+
+
 
     </body>
+    <script src="/script.js"></script>
 
 </html>
