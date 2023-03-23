@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:4000/api/v1';
+const API_URL = 'https://space-dropsov.net/api/v1';
 
 let user;
 
@@ -10,42 +10,49 @@ fetch(`${API_URL}/usersCount`).then((res) => {
     });
 });
 
-fetch(`${API_URL}/users/${Base58.encode(enc.encode('832611w37'))}`).then((res) => {
-    res.json().then(({ data }) => {
-        console.log(data);
-    });
-});
 
 function onTelegramAuth(user) {
     user = user;
 
-    const newDiv = document.createElement('div');
+    const userRefId = Base58.encode(enc.encode(user.id));
 
-    const userString =
-        'Logged in as ' +
-        user.first_name +
-        ' ' +
-        user.last_name +
-        ' (' +
-        user.id +
-        (user.username ? ', @' + user.username : '') +
-        ')';
-
-    fetch(`${API_URL}/users/${Base58.encode(enc.encode(user.id))}`).then((res) => {
+    fetch(`${API_URL}/users/${userRefId}`).then((res) => {
         res.json().then(({ data }) => {
+            document.querySelector("#welcome").classList.add("hidden");
+            document.querySelector("#cabinet").classList.remove("hidden");
+            document.querySelector("#referral-link").innerHTML = `твоя реферральная ссылка: ${location.origin}/?ref=${userRefId}`;
             if (!data.user) {
                 fetch(
                     `${API_URL}/users/)}`,
                     {
                         method: POST,
                         body: JSON.stringify({
-                            "referralId": Base58.encode(enc.encode(user.id)),
-                            "userName":userName
+                            "referralId": userRefId,
+                            "userName": user.username
                         })
                     })
-                    .then((res) => {});
+                    .then((res) => {
+                        const searchParams = new URLSearchParams(location.search);
+                        const refId = searchParams.get("ref");
+                        if (refId) {
+                            fetch(
+                                `${API_URL}/users/)}`,
+                                {
+                                    method: PATCH,
+                                    body: JSON.stringify({
+                                        "referralId": refId,
+                                        "userName": user.username
+                                    })
+                                })
+                                .then((res) => {
+
+                                });
+                        }
+
+                    });
             } else {
-                console.log('ee')
+                console.log(data.user);
+                document.querySelector('#referrals').innerHTML = data.user.referrals.map(ref => `<div>${ref.userName}</div>`)
             }
         });
     });

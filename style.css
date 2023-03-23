@@ -2,6 +2,10 @@ body {
     margin: 0;
 }
 
+.hidden {
+    display: none;
+}
+
 .page-wrapper {
     max-width: 800px;
     margin: 0 auto;
