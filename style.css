@@ -9,6 +9,7 @@ body {
 .page-wrapper {
     max-width: 800px;
     margin: 0 auto;
+    padding-top: 320px;
 }
 
 .wrapper {
@@ -38,4 +39,8 @@ iframe {
     width: 200px;
     left: 0;
     top: 0;
+}
+
+#referral-link {
+    margin-bottom: 32px;
 }
