@@ -1,0 +1,1 @@
+export const API_URL = 'https://space-drops.io/api/v1';

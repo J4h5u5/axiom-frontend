@@ -1,10 +1,21 @@
 import { Inter } from 'next/font/google';
 import Script from 'next/script'
 import { TLoginButton, TLoginButtonSize } from 'react-telegram-auth';
+import { API_URL } from '../apiUrls';
 
-const inter = Inter({ subsets: ['latin'] });
 
-export default function Home() {
+export const getStaticProps = async () => {
+    const res = await fetch(`${API_URL}/usersCount`);
+    const usersCount = await res.json();
+
+    return {
+        props: usersCount.data
+    }
+}
+
+const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
+
+
     return (
         <div className="container">
             <header className="header">
@@ -19,7 +30,7 @@ export default function Home() {
                             <div className="form__input">
                                 <div className="form__input-content">
                                     <span className="form__input-content-description">
-                                        РЕЙС: # TR 300_<span id="users-count"></span>
+                                        РЕЙС: # TR 300_{usersCount}
                                     </span>
                                 </div>
                             </div>
@@ -38,7 +49,7 @@ export default function Home() {
                                     usePic={false}
                                     cornerRadius={20}
                                     onAuthCallback={(user) => {
-                                    console.log('Hello, user!', user);
+
                                     }}
                                     requestAccess={'write'}
                                 />
@@ -66,19 +77,9 @@ export default function Home() {
                         Your browser doesn't support HTML5 video tag.
                     </video>
                 </section>
-
-                <section className="wrapper-second wrapper-second-hidden removed">
-                    <h1 className="title">РЕГИСТРАЦИЯ ПРОШЛА УСПЕШНО!</h1>
-                    <div className="description">
-                        <span className="description__text">
-                            В Области Посадки работает Техника! Дата Вылета уточняется.
-                        </span>
-                        <span className="description__text">
-                            Твои космомили: <span id="miles"></span>
-                        </span>
-                    </div>
-                </section>
             </main>
         </div>
     );
 }
+
+export default Home;
