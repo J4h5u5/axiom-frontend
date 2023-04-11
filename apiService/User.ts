@@ -19,8 +19,8 @@ class User {
         this.instance = this;
     }
 
-    public setUserData(userData: IApiUserData, tgUserData: ITgUserData) {
-        const { user: apiUserData, token } = userData
+    public setUserData(userData: IApiUserData, tgUserData: ITgUserData, token: string) {
+        const { user: apiUserData } = userData
         this.userName = apiUserData.userName;
         this.referralId = apiUserData.referralId;
         this.referrals = apiUserData.referrals;
