@@ -13,8 +13,8 @@ export const login = (tgUserData: ITgUserData): Promise<void> => {
         body: JSON.stringify({ userData: tgUserData }),
     }).then(async (response) => {
 
-        const responseData: { data: IApiUserData } = await response.json();
-        user.setUserData(responseData.data, tgUserData);
+        const responseData: { data: IApiUserData; token: string } = await response.json();
+        user.setUserData(responseData.data, tgUserData, responseData.token);
 
         console.log(responseData);
         const searchParams = new URLSearchParams(location.search);

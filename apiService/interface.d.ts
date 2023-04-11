@@ -22,5 +22,4 @@ export interface IUser {
 
 export interface IApiUserData {
     user: IUser;
-    token: string;
 }
