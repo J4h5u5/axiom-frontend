@@ -1,7 +1,9 @@
-import { Inter } from 'next/font/google';
-import Script from 'next/script'
+import React from 'react';
+import { useRouter } from 'next/navigation';
 import { TLoginButton, TLoginButtonSize } from 'react-telegram-auth';
 import { API_URL } from '../apiUrls';
+import { ITgUserData } from '../apiService/interface';
+import { login } from '../utils/login';
 
 
 export const getStaticProps = async () => {
@@ -14,7 +16,18 @@ export const getStaticProps = async () => {
 }
 
 const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
+    const router = useRouter();
+    const [pageState, setPageState] = React.useState<'init' | 'success' | 'error'>('init');
 
+    const onAuth = React.useCallback(async (userData: ITgUserData) => {
+        try {
+            await login(userData);
+            setPageState('success');
+            router.push('/launge');
+        } catch (error) {
+            setPageState('error');
+        }
+    }, []);
 
     return (
         <div className="container">
@@ -49,7 +62,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                                     usePic={false}
                                     cornerRadius={20}
                                     onAuthCallback={(user) => {
-
+                                        onAuth(user);
                                     }}
                                     requestAccess={'write'}
                                 />
@@ -74,7 +87,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                             src="tr300_1.mp4"
                             type="video/mp4"
                         />
-                        Your browser doesnt support HTML5 video tag.
+                        Your browser doesn't support HTML5 video tag.
                     </video>
                 </section>
             </main>
@@ -83,3 +96,4 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
 }
 
 export default Home;
+

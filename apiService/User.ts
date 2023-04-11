@@ -1,32 +1,44 @@
+import { IUser, ITgUserData, IApiUserData } from "./interface";
 
-export interface IUser {
-    userName: string;
-    referralId: string;
-    referrals: IUser[];
-    createdAt: Date;
-    miles: number;
-    lastLoginAt: Date;
-    lastDailyMilesPayout: Date;
-}
+class User {
 
-export class User {
+    public userName = '';
+    public referralId = '';
+    public referrals: IUser[] = []
+    public createdAt?: Date;
+    public miles = 0;
+    public lastLoginAt?: Date;
+    public lastDailyMilesPayout?: Date;
+    public tgUserData?: ITgUserData;
 
-    public userName: string;
-    public referralId: string;
-    public referrals: IUser[];
-    public createdAt: Date;
-    public miles: number;
-    public lastLoginAt: Date;
-    public lastDailyMilesPayout: Date;
+    private token?: string;
+    private instance: User;
 
 
-    constructor(userData: IUser) {
-        this.userName = userData.userName;
-        this.referralId = userData.referralId;
-        this.referrals = userData.referrals;
-        this.createdAt = userData.createdAt;
-        this.miles = userData.miles;
-        this.lastLoginAt = userData.lastLoginAt;
-        this.lastDailyMilesPayout = userData.lastDailyMilesPayout;
+    constructor() {
+        this.instance = this;
+    }
+
+    public setUserData(userData: IApiUserData, tgUserData: ITgUserData) {
+        const { user: apiUserData, token } = userData
+        this.userName = apiUserData.userName;
+        this.referralId = apiUserData.referralId;
+        this.referrals = apiUserData.referrals;
+        this.createdAt = apiUserData.createdAt;
+        this.miles = apiUserData.miles;
+        this.lastLoginAt = apiUserData.lastLoginAt;
+        this.lastDailyMilesPayout = apiUserData.lastDailyMilesPayout;
+        this.tgUserData = tgUserData;
+        this.token = token;
+    }
+
+    public get authToken(): string | undefined {
+        return this.token;
+    }
+
+    public getInstance() {
+        return this.instance;
     }
 }
+
+export const user = new User();
