@@ -56,17 +56,6 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                             <div className="auth-wrapper">
                                 <button className="form__btn">ПОЕХАЛИ!</button>
                                 <button className="forn__btn_hover">Регистрация в ТГ</button>
-                                {/* <TLoginButton
-                                    botName="AxiomAuthDevBot"
-                                    buttonSize={TLoginButtonSize.Large}
-                                    lang="en"
-                                    usePic={false}
-                                    cornerRadius={20}
-                                    onAuthCallback={(user) => {
-                                        onAuth(user);
-                                    }}
-                                    requestAccess={'write'}
-                                /> */}
                                 <TgWidget botName="AxiomAuthBot" dataOnauth={onAuth} />
                             </div>
                         </div>
