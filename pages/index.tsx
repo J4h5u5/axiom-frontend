@@ -1,10 +1,10 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { useRouter } from 'next/navigation';
 import { TLoginButton, TLoginButtonSize } from 'react-telegram-auth';
 import { API_URL } from '../apiUrls';
 import { ITgUserData } from '../apiService/interface';
 import { login } from '../utils/login';
-import TelegramLoginButton from '../components/TgWidget/TgWidget';
+import TgWidget from '../components/TgWidget/TgWidget';
 
 
 export const getStaticProps = async () => {
@@ -56,24 +56,18 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                             <div className="auth-wrapper">
                                 <button className="form__btn">ПОЕХАЛИ!</button>
                                 <button className="forn__btn_hover">Регистрация в ТГ</button>
-                                    {/* <TLoginButton
-                                        botName="AxiomAuthDevBot"
-                                        buttonSize={TLoginButtonSize.Large}
-                                        lang="en"
-                                        usePic={false}
-                                        cornerRadius={20}
-                                        onAuthCallback={(user) => {
-                                            onAuth(user);
-                                        }}
-                                        requestAccess={'write'}
-                                    /> */}
-                                    <TelegramLoginButton
-                                        botName="AxiomAuthBot"
-                                        dataOnauth={(user) => {
-                                            onAuth(user);
-                                        }}
-                                    />
-
+                                {/* <TLoginButton
+                                    botName="AxiomAuthDevBot"
+                                    buttonSize={TLoginButtonSize.Large}
+                                    lang="en"
+                                    usePic={false}
+                                    cornerRadius={20}
+                                    onAuthCallback={(user) => {
+                                        onAuth(user);
+                                    }}
+                                    requestAccess={'write'}
+                                /> */}
+                                <TgWidget botName="AxiomAuthBot" dataOnauth={onAuth} />
                             </div>
                         </div>
                         <div className="countdown hidden">7</div>
