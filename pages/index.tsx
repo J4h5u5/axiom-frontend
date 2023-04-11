@@ -5,6 +5,7 @@ import { API_URL } from '../apiUrls';
 import { ITgUserData } from '../apiService/interface';
 import { login } from '../utils/login';
 import Script from 'next/script';
+import MainContainer from '../components/MainContainer/MainContainer';
 
 
 export const getStaticProps = async () => {
@@ -20,25 +21,13 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
     const router = useRouter();
     const [pageState, setPageState] = React.useState<'init' | 'success' | 'error'>('init');
 
-
-
-    const onAuth = React.useCallback(async (userData: ITgUserData) => {
-        try {
-            await login(userData);
-            setPageState('success');
-            router.push('/launge');
-        } catch (error) {
-            setPageState('error');
-        }
-    }, []);
-
     React.useEffect(() => {
-        window.TelegramLoginWidget = {
+        (window as any).TelegramLoginWidget = {
             dataOnauth: async (userData: ITgUserData) => {
                 try {
                     await login(userData);
                     setPageState('success');
-                    router.push('/launge');
+                    router.push('/lounge');
                 } catch (error) {
                     setPageState('error');
                 }
@@ -47,10 +36,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
     }, [])
 
     return (
-        <div className="container">
-            <header className="header">
-                <div className="header__logo"></div>
-            </header>
+        <MainContainer>
 
             <main className="main">
                 <section className="wrapper">
@@ -90,6 +76,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
 
                                         js.src = 'https://telegram.org/js/telegram-widget.js?21'
                                         js.setAttribute('data-telegram-login', 'AxiomAuthDevBot')
+                                        js.setAttribute('data-size', 'large')
 
 
                                         // if (cornerRadius !== undefined) {
@@ -102,7 +89,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                                         js.setAttribute('data-onauth', 'TelegramLoginWidget.dataOnauth(user)')
 
                                         js.charset = "UTF-8";
-                                        console.log(d.querySelector('#authWrapper'))
+
                                         d.querySelector('#authWrapper').appendChild(js, el);
                                 })(document, "script");
                                 `,
@@ -133,7 +120,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                     </video>
                 </section>
             </main>
-        </div>
+            </MainContainer>
     );
 }
 
