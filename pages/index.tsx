@@ -74,7 +74,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                             src="tr300_1.mp4"
                             type="video/mp4"
                         />
-                        Your browser doesn't support HTML5 video tag.
+                        Your browser doesnt support HTML5 video tag.
                     </video>
                 </section>
             </main>
