@@ -4,6 +4,7 @@ import { TLoginButton, TLoginButtonSize } from 'react-telegram-auth';
 import { API_URL } from '../apiUrls';
 import { ITgUserData } from '../apiService/interface';
 import { login } from '../utils/login';
+import TelegramLoginButton from '../components/TgWidget/TgWidget';
 
 
 export const getStaticProps = async () => {
@@ -55,9 +56,8 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                             <div className="auth-wrapper">
                                 <button className="form__btn">ПОЕХАЛИ!</button>
                                 <button className="forn__btn_hover">Регистрация в ТГ</button>
-                                <Suspense>
-                                    <TLoginButton
-                                        botName="AxiomAuthBot"
+                                    {/* <TLoginButton
+                                        botName="AxiomAuthDevBot"
                                         buttonSize={TLoginButtonSize.Large}
                                         lang="en"
                                         usePic={false}
@@ -66,8 +66,13 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                                             onAuth(user);
                                         }}
                                         requestAccess={'write'}
+                                    /> */}
+                                    <TelegramLoginButton
+                                        botName="AxiomAuthBot"
+                                        dataOnauth={(user) => {
+                                            onAuth(user);
+                                        }}
                                     />
-                                </Suspense>
 
                             </div>
                         </div>

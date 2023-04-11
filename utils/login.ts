@@ -3,7 +3,7 @@ import { IApiUserData, ITgUserData } from "../apiService/interface";
 import { API_URL } from "../apiUrls";
 
 export const login = (tgUserData: ITgUserData): Promise<void> => {
-
+    console.log(tgUserData);
     return fetch(`${API_URL}/users/login`, {
         method: 'POST',
         headers: {
