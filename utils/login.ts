@@ -7,8 +7,7 @@ export const login = (tgUserData: ITgUserData): Promise<void> => {
     return fetch(`${API_URL}/users/login`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json',
-            'Access-Control-Request-Private-Network': 'true'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify({ userData: tgUserData }),
     }).then(async (response) => {

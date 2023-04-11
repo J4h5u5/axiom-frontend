@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { useRouter } from 'next/navigation';
 import { TLoginButton, TLoginButtonSize } from 'react-telegram-auth';
 import { API_URL } from '../apiUrls';
@@ -55,17 +55,20 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                             <div className="auth-wrapper">
                                 <button className="form__btn">ПОЕХАЛИ!</button>
                                 <button className="forn__btn_hover">Регистрация в ТГ</button>
-                                <TLoginButton
-                                    botName="AxiomAuthBot"
-                                    buttonSize={TLoginButtonSize.Large}
-                                    lang="en"
-                                    usePic={false}
-                                    cornerRadius={20}
-                                    onAuthCallback={(user) => {
-                                        onAuth(user);
-                                    }}
-                                    requestAccess={'write'}
-                                />
+                                <Suspense>
+                                    <TLoginButton
+                                        botName="AxiomAuthBot"
+                                        buttonSize={TLoginButtonSize.Large}
+                                        lang="en"
+                                        usePic={false}
+                                        cornerRadius={20}
+                                        onAuthCallback={(user) => {
+                                            onAuth(user);
+                                        }}
+                                        requestAccess={'write'}
+                                    />
+                                </Suspense>
+
                             </div>
                         </div>
                         <div className="countdown hidden">7</div>
