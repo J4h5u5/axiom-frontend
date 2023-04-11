@@ -56,7 +56,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                                 <button className="form__btn">ПОЕХАЛИ!</button>
                                 <button className="forn__btn_hover">Регистрация в ТГ</button>
                                 <TLoginButton
-                                    botName="AxiomAuthDevBot"
+                                    botName="AxiomAuthBot"
                                     buttonSize={TLoginButtonSize.Large}
                                     lang="en"
                                     usePic={false}
