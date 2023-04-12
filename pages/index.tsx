@@ -17,6 +17,8 @@ export const getStaticProps = async () => {
     }
 }
 
+console.log(process.env.NEXT_PUBLIC_ENV)
+
 const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
     const router = useRouter();
     const [pageState, setPageState] = React.useState<'init' | 'success' | 'error'>('init');
@@ -60,6 +62,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                                 <button className="forn__btn_hover">Регистрация в ТГ</button>
 
                             <Script
+                                id="tg-widget"
                                 strategy="afterInteractive"
                                 dangerouslySetInnerHTML={{
                                 __html: `
@@ -75,7 +78,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                                         js.id = id;
 
                                         js.src = 'https://telegram.org/js/telegram-widget.js?21'
-                                        js.setAttribute('data-telegram-login', 'AxiomAuthBot')
+                                        js.setAttribute('data-telegram-login', '${process.env.NEXT_PUBLIC_ENV}')
                                         js.setAttribute('data-size', 'large')
 
 
@@ -116,7 +119,7 @@ const Home: React.FC<{ usersCount: number }> = ({ usersCount }) => {
                             src="tr300_1.mp4"
                             type="video/mp4"
                         />
-                        Your browser doesn't support HTML5 video tag.
+                        Your browser doesn`&apos;`t support HTML5 video tag.
                     </video>
                 </section>
             </main>

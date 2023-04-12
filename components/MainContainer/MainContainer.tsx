@@ -4,37 +4,36 @@ import Button from '../Button/Button';
 import { useUser } from '../../hooks/useUser';
 import { useRouter } from 'next/router';
 import SpaceLink from '../SpaceLink/SpaceLink';
+import BackButton from '../BackButton/BackButton';
 
 type Props = {
+    className?: string;
     children: React.ReactNode;
+    backRoute?: string;
 };
 
-export default function MainContainer({ children }: Props) {
+export default function MainContainer({ className, children, backRoute }: Props) {
+    const [isAuth, setIsAuth] = React.useState(false);
+
     const user = useUser();
     const router = useRouter();
 
+    React.useEffect(() => {
+        setIsAuth(!!user.authToken);
+    }, [user.authToken]);
+
     return (
-        <div className="container">
-            <header className="header">
-                <div className="header__logo"></div>
-            </header>
-            {user.authToken &&
-                <div className='flex mb-20'>
-                    <SpaceLink href={router.pathname === '/profile' ? '#' : '/profile'}>
-                        <Button isDisabled={router.pathname === '/profile'}>
-                            Капсула
-                        </Button>
-                    </SpaceLink>
+        <div className={`view ${className}`} >
+            <div className='container'>
+                <header className="header">
+                    <div className="header__logo"></div>
+                </header>
+                <div>
+                {backRoute && <div className='my-4'><BackButton href={backRoute}/></div>}
 
-                    <SpaceLink href={router.pathname === '/lounge' ? '#' : '/lounge'}>
-                        <Button isDisabled={router.pathname === '/lounge'}>
-                            Зал ожидания
-                        </Button>
-                    </SpaceLink>
                 </div>
-            }
-
-        {children}
+                {children}
+            </div>
         </div>
     );
 }
