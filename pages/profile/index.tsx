@@ -20,8 +20,8 @@ const Profile = (props: Props) => {
     }, [user]);
 
     return (
-        <MainContainer>
-            <div className='mb-4'>
+        <MainContainer className='auth' backRoute='lounge'>
+            <div className='my-4'>
                 <ProfilePhoto photoUrl={'./src/img/profile.png'} />
                 <div className="flex flex-wrap flex-col">
                     <ProfileRow

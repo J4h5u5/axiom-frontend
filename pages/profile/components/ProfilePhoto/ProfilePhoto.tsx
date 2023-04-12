@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import styles from './Profile.module.css';
 
 type Props = {
     photoUrl?: string;
@@ -7,20 +8,7 @@ type Props = {
 const ProfilePhoto = ({ photoUrl }: Props) => {
   return (
     <>
-        <div className='profile-photo bg-gray-500 mb-8'></div>
-        <style jsx>
-            {
-                `
-                .profile-photo {
-                    width: 100px;
-                    height: 100px;
-                    border-radius: 50%;
-                    background-image: url(${photoUrl});
-                }
-
-                `
-            }
-        </style>
+        <div className={`${styles.profile_photo} bg-gray-300 mb-8`}></div>
     </>
   )
 }

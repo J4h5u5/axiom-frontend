@@ -1,0 +1,18 @@
+.screen_btn {
+    width: 328px;
+    background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #959593;
+    background-blend-mode: soft-light, normal;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: -2px -2px 16px rgba(215, 217, 226, 0.5), 2px 2px 16px rgba(24, 24, 24, 0.5);
+    border-radius: 8px;
+    padding: 2px 8px;
+    text-transform: uppercase;
+}
+
+.description {
+    width: auto;
+}
+
+.description_a {
+    margin-bottom: 80px;
+}
