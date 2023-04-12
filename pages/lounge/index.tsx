@@ -33,9 +33,6 @@ export default function LoungePage() {
                     <span className={`${styles.screen_btn} ${styles.description} ${styles.description_a} description__text`}>
                         В Области Посадки работает Техника! Дата Вылета уточняется.
                     </span>
-                    <div className={`${styles.screen_btn} ${styles.description} description__text`}>
-                        Твои космомили: {user.miles}
-                    </div>
                 </div>
             </section>
         </MainContainer>
