@@ -13,7 +13,8 @@ export const getStaticProps = async () => {
     const usersCount = await res.json();
 
     return {
-        props: usersCount.data
+        props: usersCount.data,
+        revalidate: 10
     }
 }
 
