@@ -1,0 +1,87 @@
+.nav {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.nav_item {
+  position: relative;
+  display: grid;
+  justify-items: flex-start;
+  row-gap: 5px;
+  position: relative;
+}
+
+.nav_item:not(:last-child) {
+  margin-right: 50px;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  font-family: 'GetVoIP', Helvetica, sans-serif;
+  font-size: 180px;
+  line-height: 180px;
+  font-weight: normal;
+  overflow: hidden;
+  color: transparent;
+  -webkit-text-stroke: 2px #030117;
+}
+
+.outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #030117;
+  transform: translateX(-100%);
+  -webkit-text-stroke: 2px #c4c3c1;
+}
+
+.inner {
+  display: inline-block;
+  transform: translateX(100%);
+}
+
+.outer,
+.inner {
+  transition: transform 0.3s linear;
+}
+
+.link:hover .outer,
+.link:hover .inner {
+  transform: none;
+}
+
+[data-animation='to-top'] .outer {
+  transform: translateY(100%);
+}
+
+[data-animation='to-top'] .inner {
+  transform: translateY(-100%);
+}
+
+.wrapper {
+  position: absolute;
+  bottom: 100%;
+  left: 12px;
+  display: grid;
+  row-gap: 10px;
+}
+
+.index {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #030117;
+}
+
+.line {
+  width: 2px;
+  height: 48px;
+  background-color: #030117;
+  transition: height 0.3s linear;
+}
+
+.line_active {
+  height: 96px;
+}
