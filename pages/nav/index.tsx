@@ -29,7 +29,7 @@ export default class Nav extends React.Component {
 
     const handleMouseLeave = () => {
       this.setState({
-        linkIdHovered: null
+        linkIdHovered: null,
       });
     };
 
@@ -50,7 +50,7 @@ export default class Nav extends React.Component {
             <a
               className={`${styles.link}`}
               href={href}
-              onMouseMove={handleMouseMove(idx)}
+              onMouseEnter={handleMouseMove(idx)}
               onMouseLeave={handleMouseLeave}
             >
               {name.toLocaleUpperCase()}
