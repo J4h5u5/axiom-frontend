@@ -6,7 +6,7 @@ import styles from './Nav.module.css';
 export default class Nav extends React.Component {
   constructor(props: any) {
     super(props);
-    this.state = { isLinkHovered: false };
+    this.state = { linkIdHovered: null };
   }
 
   render() {
@@ -21,15 +21,15 @@ export default class Nav extends React.Component {
       },
     ];
 
-    const handleMouseMove = () => {
+    const handleMouseMove = (idx: number) => () => {
       this.setState({
-        isLinkHovered: true,
+        linkIdHovered: idx,
       });
     };
 
     const handleMouseLeave = () => {
       this.setState({
-        isLinkHovered: false,
+        linkIdHovered: null
       });
     };
 
@@ -42,7 +42,7 @@ export default class Nav extends React.Component {
             </span>
             <div
               className={`${styles.line} ${
-                this.state.isLinkHovered ? styles.line_active : ''
+                this.state.linkIdHovered === idx ? styles.line_active : ''
               }`}
             ></div>
           </div>
@@ -50,7 +50,7 @@ export default class Nav extends React.Component {
             <a
               className={`${styles.link}`}
               href={href}
-              onMouseMove={handleMouseMove}
+              onMouseMove={handleMouseMove(idx)}
               onMouseLeave={handleMouseLeave}
             >
               {name.toLocaleUpperCase()}
@@ -68,7 +68,7 @@ export default class Nav extends React.Component {
     return (
       <MainContainer className="auth">
         <section className="wrapper-second m-auto text-center">
-          <h1 className="title">{this.state.isLinkHovered}</h1>
+          <h1 className="title">{Boolean(this.state.linkIdHovered)}</h1>
           <div className="mt-8 text-center flex flex-col items-center">asd</div>
           <ul className={`${styles.nav}`}>{linkItems}</ul>
         </section>
