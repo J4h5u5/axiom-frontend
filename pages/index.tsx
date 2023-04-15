@@ -1,7 +1,6 @@
 import React from 'react';
 import useSWR, { SWRConfig } from "swr";
 import { useRouter } from 'next/navigation';
-import { TLoginButton, TLoginButtonSize } from 'react-telegram-auth';
 import { API_URL } from '../apiUrls';
 import { ITgUserData } from '../apiService/interface';
 import { login } from '../utils/login';
@@ -12,8 +11,13 @@ import { fetcher } from '../utils/fetcher';
 
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const res = await fetcher<{ status: string, data: { usersCount: number } }>(`${API_URL}/usersCount`);
-
+    let res;
+    try {
+        res = await fetcher<{ status: string, data: { usersCount: number } }>(`${API_URL}/usersCount`);
+    } catch (error) {
+        res = 0;
+    }
+  
     return {
         props: {
             fallback: {
@@ -27,12 +31,11 @@ const UsersAmount = () => {
     const url = `${API_URL}/usersCount`;
     const { data } = useSWR<{ status: string, data: { usersCount: number } }>(url, { refreshInterval: 10_000 })
 
-    return <span>{data?.data.usersCount}</span>
+    return <span>{data?.data?.usersCount || '0'}</span>
 }
 
 const Home: React.FC<{ fallback: Record<string, any> }>= ({ fallback }) => {
     const router = useRouter();
-    const [_usersCount, setUsersCount] = React.useState('0');
     const [pageState, setPageState] = React.useState<'init' | 'success' | 'error'>('init');
 
     React.useEffect(() => {
@@ -51,27 +54,27 @@ const Home: React.FC<{ fallback: Record<string, any> }>= ({ fallback }) => {
 
     return (
         <SWRConfig value={{ fallback }}>
-            <MainContainer>
+            <MainContainer isShowLogo>
                 <main className="main">
                     <section className="wrapper">
-                        <h1 className="title">НАЙДИ СВОЁ МЕСТО ВО ВСЕЛЕННОЙ</h1>
+                        <h1 className="title text-text">Найди свое место во вселенной!</h1>
                         <div className="interactive-wrapper">
                             <div className="form">
                                 <div className="form__input">
                                     <div className="form__input-content">
-                                        <span className="form__input-content-description">
-                                            РЕЙС: # TR 300_<UsersAmount />
+                                        <span className="form__input-content-description text-text">
+                                            рейс: #TR300_<UsersAmount />
                                         </span>
                                     </div>
                                 </div>
                                 <div className="form__input">
                                     <div className="form__input-content">
-                                        <span className="form__input-content-description">ДАТА: [Уточняется]</span>
+                                        <span className="form__input-content-description text-text">Даты: [Уточняется]</span>
                                     </div>
                                 </div>
                                 <div className="auth-wrapper" id="authWrapper">
-                                    <button className="form__btn">ПОЕХАЛИ!</button>
-                                    <button className="forn__btn_hover">Регистрация в ТГ</button>
+                                    <button className="form__btn bg-goldenDream text-text">ПОЕХАЛИ!</button>
+                                    <button className="form__btn_hover text-text">Регистрация в ТГ</button>
 
                                     <Script
                                         id="tg-widget"
@@ -116,22 +119,23 @@ const Home: React.FC<{ fallback: Record<string, any> }>= ({ fallback }) => {
                         </div>
 
                         <div className="description">
-                            <span className="description__text">
+                            <span className="description__text text-text">
                                 Вся необходимая информация будет доступна в <span>Зале Ожидания</span> после{' '}
                                 <span>регистрации</span> и получения <span>посадочного талона</span>.
                             </span>
                         </div>
-                        <video
-                            className="video"
-                            controls
-                            poster="video_player_mock.png"
-                        >
-                            <source
-                                src="tr300_1.mp4"
-                                type="video/mp4"
-                            />
-                            Your browser doesn`&apos;`t support HTML5 video tag.
-                        </video>
+                        <div className="wrapper_video">
+                          <div className="inner_video">
+                             <video
+                                className="video"
+                                controls
+                                poster="video_player_mock.png"
+                                >
+                                 <source src="tr300_1.mp4" type="video/mp4" />
+                                Your browser doesn`&apos;`t support HTML5 video tag.
+                                </video>
+                            </div>
+                        </div>  
                     </section>
                 </main>
             </MainContainer>
