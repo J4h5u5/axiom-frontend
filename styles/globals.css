@@ -31,6 +31,27 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: Cubenzis-Light;
+  src: url("../src/fonts/Cubenzis-Light.woff2") format("woff2"),
+  url("../src/fonts/Cubenzis-Light.woff2") format("woff");
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Cubenzis-Regular;
+  src: url("../src/fonts/Cubenzis-Regular.woff2") format("woff2"),
+  url("../src/fonts/Cubenzis-Regular.woff") format("woff");
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Cubenzis-Bold;
+  src: url("../src/fonts/Cubenzis-Bold.woff2") format("woff2"),
+  url("../src/fonts/Cubenzis-Bold.woff") format("woff");
+  font-weight: 700;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -56,11 +77,14 @@ html {
 
 }
 
+.view {
+  padding: 50px 0;
+}
+
 .container {
   z-index: 1;
   position: relative;
   margin: 0 auto;
-  padding: 60px 0;
   max-width: 1240px;
   width: 100%;
 }
@@ -68,22 +92,22 @@ html {
 .header {
   display: flex;
   justify-content: center;
-  margin-bottom: 80px;
+  margin-bottom: 32px;
 }
 
 .header__logo {
-  width: 285px;
-  height: 128px;
+  width: 277px;
+  height: 135px;
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('./../src/img/title.png');
+  background-image: url('./../src/img/logo.png');
 }
 
 .main {
   display: grid;
   row-gap: 80px;
-  padding: 0 8px;
+  padding: 0 16px;
 }
 
 .wrapper,
@@ -96,22 +120,33 @@ html {
   justify-self: center;
   text-align: center;
   font-family: GetVoIP;
-  font-size: 53px;
-  line-height: 53px;
+  font-size: 48px;
+  line-height: 63px;
   font-weight: normal;
-  color: #000;
-  margin-bottom: 100px;
+  margin-bottom: 32px;
 }
 
 .form {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .form__input {
   border: 2px solid #B5B4BA;
   border-radius: 16px;
+  max-width: 282px;
+  height: 48px;
+  width: 100%;
+  margin-right: 24px;
+  background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #EAECF0;
+  background-blend-mode: soft-light, normal;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: -9px -9px 24px #FAFBFF, 9px 9px 24px #C5C8D7;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  padding-left: 16px;
 }
 
 .form__input-button {
@@ -138,55 +173,50 @@ html {
   background-image: url('./../src/img/date_range.svg');
 }
 
-.form__input-content {
-  display: grid;
-  padding: 20px 60px;
-  color: #000;
-}
 
 .form__input-content-description {
   height: min-content;
-  font-size: 21px;
-  line-height: 25px;
-  font-weight: 700;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: Cubenzis-Light;
 }
 
 .auth-wrapper {
   position: relative;
-  height: 100%;
+  height: 48px;
+  max-width: 282px;
+  width: 100%;
   overflow: hidden;
   cursor: pointer;
-}
-
-.form__btn {
-  color: #000;
+  background: #EAECF0;
+  box-shadow: -12px -12px 24px #FAFBFF, 12px 12px 24px #C5C8D7;
+  border-radius: 8px;
+  padding: 4px;
 }
 
 .form__btn,
-.forn__btn_hover {
+.form__btn_hover {
   height: 100%;
   width: 100%;
-  border: 2px solid #FFDA01;
-  border-radius: 16px;
-  font-family: Manifold;
-  font-size: 21px;
-  line-height: 25px;
+  border-radius: 7px;
+  font-family: GetVoIP;
+  font-size: 16px;
+  line-height: 21px;
   font-weight: 700;
-  background-color: #FFDA01;
 }
 
 /* .auth-wrapper:hover .form__btn {
   display: none;
 } */
 
-.forn__btn_hover {
+.form__btn_hover {
   display: none;
   position: absolute;
   top: 0;
   left: 0;
 }
 
-.auth-wrapper:hover .forn__btn_hover {
+.auth-wrapper:hover .form__btn_hover {
   display: block;
   background-color: #B5B4BA;
   border: 2px solid #B5B4BA;
@@ -240,33 +270,49 @@ iframe {
 }
 
 .interactive-wrapper {
-  height: 65px;
   position: relative;
-  margin-bottom: 60px;
+  margin-bottom: 32px;
 }
 
 .description {
   margin: 0 auto;
   display: grid;
   row-gap: 60px;
-  max-width: 960px;
-  margin-bottom: 60px;
+  max-width: 703px;
+  margin-bottom: 32px;
+  padding-left: 35px;
+  padding-right: 35px;
+  font-family: Cubenzis-Light;
 }
 
 .description__text {
   text-align: center;
-  font-size: 22px;
-  line-height: 26px;
+  font-size: 16px;
+  line-height: 21px;
   font-weight: 300;
-  color: #000;
 }
 
 .bold {
   font-weight: 700;
 }
 
+.wrapper_video{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner_video{
+  background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #EAECF0;
+  background-blend-mode: soft-light, normal;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: -12px -12px 24px #FAFBFF, 12px 12px 24px #C5C8D7;
+  border-radius: 16px;
+  padding: 16px;
+}
+
 .video {
-  width: 70%;
+  width: 760px;
   margin: auto;
   border-radius: 16px;
 }
@@ -291,14 +337,34 @@ iframe {
 @media (max-width: 800px) {
 
   .header__logo {
-    width: 142px;
-    height: 64px;
+    width: 123px;
+    height: 60px;
+  }
+
+  .wrapper_video{
+    order: 2;
   }
 
   .form {
-      display: grid;
-      grid-template-columns: auto;
-      row-gap: 16px;
+    flex-direction: column;
+    row-gap: 8px;
+  }
+
+  .form__input {
+    margin-right: 0px;
+    max-width: 328px;
+  }
+
+  .auth-wrapper{
+    max-width: 328px;
+  }
+
+  .interactive-wrapper{
+    order: 3;
+  }
+
+  .inner_video{
+    padding: 8px;
   }
 
   .form__btn {
@@ -307,12 +373,20 @@ iframe {
   }
 
   .wrapper {
-    padding: 0 24px;
-    row-gap: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .auth-wrapper{
+    margin-bottom: 0px !important;
+  }
+
+  .interactive-wrapper{
+    margin-bottom: 0px;
   }
 
   .interactive-wrapper {
-    height: 220px;
+    margin-top: 24px;
   }
 
   .cosmos, .countdown {
@@ -329,15 +403,14 @@ iframe {
   }
 
   .title {
-    font-size: 25px;
-    line-height: 25px;
-    margin-bottom: 40px;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom: 24px;
   }
 
   .form__input-content-description {
-    text-align: center;
-    font-size: 14px;
-    line-height: 17px;
+    font-size: 12px;
+    line-height: 16px;
   }
 
   .description__text {
@@ -345,24 +418,21 @@ iframe {
     line-height: 14px;
   }
 
-  .form__input-content {
-    padding: 14px 40px;
-  }
-
   .auth-wrapper {
     height: 45px;
     width: 100%;
     margin-bottom: 45px;
-  }
-
-  .form__btn,
-  .forn__btn_hover {
-    height: 45px;
-    width: 100%;
+    margin-top: 16px;
   }
 
   .description {
-    margin-bottom: 45px;
+    margin-bottom: 24px;
+    padding: 0px;
+  }
+  
+  .description__text {
+    font-size: 16px;
+    line-height: 24px;
   }
 
   .video {

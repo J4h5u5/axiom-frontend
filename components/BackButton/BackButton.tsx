@@ -1,7 +1,11 @@
 import React from "react";
 import SpaceLink from "../SpaceLink/SpaceLink";
+import React from "react";
+import SpaceLink from "../SpaceLink/SpaceLink";
 
 type Props = {
+  href: string;
+};
   href: string;
 };
 
