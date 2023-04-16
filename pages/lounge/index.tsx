@@ -22,13 +22,13 @@ export default function LoungePage() {
             <section className="wrapper-second m-auto text-center">
                 <h1 className="title">РЕГИСТРАЦИЯ ПРОШЛА УСПЕШНО!</h1>
                 <div className='flex flex-col m-auto'>
-                <SpaceLink className='mb-4 mt-8'href={ '/screen'}>
-                    <Button className={`${styles.screen_btn}`}>Экран</Button>
-                </SpaceLink>
-                <SpaceLink href={'/profile'}>
-                    <Button className={`${styles.screen_btn}`}>Капсула</Button>
-                </SpaceLink>
-            </div>
+                    <SpaceLink className='mb-4 mt-8'href={ '/screen'}>
+                        <Button className={`${styles.screen_btn}`}>Экран</Button>
+                    </SpaceLink>
+                    <SpaceLink href={'/profile'}>
+                        <Button className={`${styles.screen_btn}`}>Капсула</Button>
+                    </SpaceLink>
+                </div>
                 <div className="mt-8 text-center flex flex-col items-center">
                     <span className={`${styles.screen_btn} ${styles.description} ${styles.description_a} description__text`}>
                         В Области Посадки работает Техника! Дата Вылета уточняется.
