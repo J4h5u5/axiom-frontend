@@ -29,7 +29,7 @@ export default function MainContainer({ className, children, backRoute }: Props)
                     <div className="header__logo"></div>
                 </header>
                 <div>
-                {backRoute && <div className='my-4'><BackButton href={backRoute}/></div>}
+                {backRoute && <div className='my-4 px-6'><BackButton href={backRoute}/></div>}
 
                 </div>
                 {children}
