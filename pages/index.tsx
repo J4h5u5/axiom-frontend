@@ -17,7 +17,7 @@ export const getServerSideProps: GetServerSideProps = async () => {
     } catch (error) {
         res = 0;
     }
-  
+
     return {
         props: {
             fallback: {
@@ -125,17 +125,17 @@ const Home: React.FC<{ fallback: Record<string, any> }>= ({ fallback }) => {
                             </span>
                         </div>
                         <div className="wrapper_video">
-                          <div className="inner_video">
-                             <video
-                                className="video"
-                                controls
-                                poster="video_player_mock.png"
+                            <div className="inner_video">
+                                <video
+                                    className="video"
+                                    controls
+                                    poster="video_player_mock.png"
                                 >
-                                 <source src="tr300_1.mp4" type="video/mp4" />
+                                    <source src="tr300_1.mp4" type="video/mp4" />
                                 Your browser doesn`&apos;`t support HTML5 video tag.
                                 </video>
                             </div>
-                        </div>  
+                        </div>
                     </section>
                 </main>
             </MainContainer>
