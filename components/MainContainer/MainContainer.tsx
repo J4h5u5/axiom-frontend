@@ -10,9 +10,10 @@ type Props = {
     className?: string;
     children: React.ReactNode;
     backRoute?: string;
+    isShowLogo?: boolean;
 };
 
-export default function MainContainer({ className, children, backRoute }: Props) {
+export default function MainContainer({ className, children, backRoute, isShowLogo = false }: Props) {
     const [isAuth, setIsAuth] = React.useState(false);
 
     const user = useUser();
@@ -23,13 +24,13 @@ export default function MainContainer({ className, children, backRoute }: Props)
     }, [user.authToken]);
 
     return (
-        <div className={`view ${className}`} >
+        <div className={`view bg-bombay${className ? ` ${className}` : ''}`}>
             <div className='container'>
-                <header className="header">
+                {isShowLogo && <header className="header">
                     <div className="header__logo"></div>
-                </header>
+                </header>}
                 <div>
-                {backRoute && <div className='my-4'><BackButton href={backRoute}/></div>}
+                    {backRoute && <div className='my-4'><BackButton href={backRoute}/></div>}
 
                 </div>
                 {children}

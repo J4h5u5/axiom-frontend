@@ -9,12 +9,12 @@ interface ISpaceLinkProps extends LinkProps, ICommonComp {
 const SpaceLink = ({ href, children, className, ...rest }: ISpaceLinkProps) => {
     if (href == "#") {
         return <>{children}</>;
-      }
-      return (
+    }
+    return (
         <Link href={href} className={className} {...rest}>
-          {children}
+            {children}
         </Link>
-      );
+    );
 }
 
 SpaceLink.displayName = 'SpaceLink';
