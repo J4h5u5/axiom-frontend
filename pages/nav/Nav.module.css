@@ -1,6 +1,25 @@
-.nav {
+.main {
+  position: relative;
   display: flex;
-  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.nav {
+  z-index: 1;
+  position: relative;
+  display: grid;
+  row-gap: 100px;
+  padding: 0 50px;
 }
 
 .nav_item {
@@ -9,18 +28,38 @@
   justify-items: flex-start;
   row-gap: 5px;
   position: relative;
+  opacity: 1;
+  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+}
+
+.nav_item:nth-child(2n) {
+  justify-self: flex-end;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateX(-500px);
+}
+
+.hidden:nth-child(2n) {
+  transform: translatex(500px);
+}
+
+.fly {
+  transform: translateY(-500px);
+  opacity: 0;
 }
 
 .nav_item:not(:last-child) {
-  margin-right: 50px;
+  margin-right: 100px;
 }
 
 .link {
   position: relative;
   display: inline-block;
   font-family: 'GetVoIP', Helvetica, sans-serif;
-  font-size: 180px;
-  line-height: 180px;
+  font-size: 100px;
+  line-height: 100px;
   font-weight: normal;
   overflow: hidden;
   color: transparent;
@@ -84,4 +123,12 @@
 
 .line_active {
   height: 96px;
+}
+
+.scene {
+  position: absolute;
+}
+
+.selected {
+  z-index: 10;
 }
