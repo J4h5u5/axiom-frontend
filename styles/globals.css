@@ -429,7 +429,7 @@ iframe {
     margin-bottom: 24px;
     padding: 0px;
   }
-  
+
   .description__text {
     font-size: 16px;
     line-height: 24px;
@@ -440,10 +440,6 @@ iframe {
     margin: auto;
     border-radius: 8px;
   }
-}
-
-.back-button {
-  filter: drop-shadow(-4px -4px 24px #D7D9E2) drop-shadow(4px 4px 24px #5F5C70);
 }
 
 .screen-title {
@@ -621,7 +617,7 @@ a {
   .departure-board:last-of-type {
     display: none;
   }
-  
+
   .inner_departure {
     padding: 4px;
   }
