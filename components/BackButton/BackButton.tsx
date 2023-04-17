@@ -1,7 +1,7 @@
 import React from "react";
 import SpaceLink from "../SpaceLink/SpaceLink";
-import { BackIcon } from "../commonIcons/backIcon";
 import styles from './BackButton.module.css'
+import { BackIcon } from "../commonIcons/BackIcon";
 
 type Props = {
   href: string;
