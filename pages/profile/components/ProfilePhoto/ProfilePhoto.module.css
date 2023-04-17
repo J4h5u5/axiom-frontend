@@ -1,0 +1,46 @@
+.profile_photo {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-image: url('../../../../src/img/profile.png');
+    background-size: cover;
+}
+
+.container_profile_photo {
+    background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #A3A2A0;
+    background-blend-mode: soft-light, normal;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: -4px -4px 16px #B0B0B0, 4px 4px 16px #66656B;
+    border-radius: 100px;
+    display: flex;
+    width: 128px;
+    height: 128px;
+    margin-bottom: 8px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.profile_container_photo_camera {
+    width: 32px;
+    height: 32px;
+    position: absolute;
+    right: 0;
+    bottom: 5px;
+    background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #B9B9B9;
+    background-blend-mode: soft-light, normal;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: -4px -4px 16px rgba(214, 214, 214, 0.5), 4px 4px 16px #939393;
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile_photo_camera {
+    position: absolute;
+    background-image: url('../../../../src/img/photo_camera.png');
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+}

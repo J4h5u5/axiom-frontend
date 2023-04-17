@@ -1,14 +1,16 @@
-import React from 'react'
+import React from "react";
+import styles from "./ProfileRow.module.css";
 
-type Props = {
-    field: string;
-    value: string;
-}
+type TProfileRow = {
+  value: string;
+};
 
-const ProfileRow = ({ field, value }: Props) => {
+const ProfileRow: React.FC<TProfileRow> = ({ value }) => {
     return (
-        <div className='border-2 border-black max-w-sm rounded-s px-8 mr-4 py-2 text-xl font-medium mb-2'>{field}: {value}</div>
-    )
-}
+        <div className={styles.profile__data_item}>
+            {value}
+        </div>
+    );
+};
 
-export default ProfileRow
+export default ProfileRow;

@@ -2188,3 +2188,9 @@ a {
     transform: rotateX(360deg);
   }
 }
+
+@media (max-width: 576px) {
+  .view {
+    padding: 26px 0;
+  }
+}
