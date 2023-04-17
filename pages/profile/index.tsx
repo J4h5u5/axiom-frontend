@@ -36,6 +36,10 @@ const Profile = (props: Props) => {
                         field="phone"
                         value={''}
                     />
+                    <ProfileRow
+                        field="космомили"
+                        value={user.miles.toString()}
+                    />
                 </div>
             </div>
 
