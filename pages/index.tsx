@@ -132,6 +132,8 @@ const Home: React.FC<{ fallback: Record<string, any> }>= ({ fallback }) => {
                         <div className="wrapper_video">
                             <div className="inner_video">
                                 <video
+                                    autoPlay
+                                    muted
                                     className="video"
                                     controls
                                     poster="video_player_mock.png"
