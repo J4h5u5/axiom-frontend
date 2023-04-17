@@ -1,18 +1,134 @@
-.screen_btn {
-    width: 328px;
-    background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #959593;
-    background-blend-mode: soft-light, normal;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: -2px -2px 16px rgba(215, 217, 226, 0.5), 2px 2px 16px rgba(24, 24, 24, 0.5);
-    border-radius: 8px;
-    padding: 2px 8px;
-    text-transform: uppercase;
+.main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.description {
-    width: auto;
+.container {
+  margin: 0 auto;
+  max-width: 1000px;
+  width: 100%;
 }
 
-.description_a {
-    margin-bottom: 80px;
+.nav {
+  z-index: 1;
+  position: relative;
+  display: grid;
+  row-gap: 100px;
+  padding: 0 50px;
+}
+
+.nav_item {
+  position: relative;
+  display: grid;
+  justify-items: flex-start;
+  row-gap: 5px;
+  position: relative;
+  opacity: 1;
+  transition: transform 0.4s ease-in, opacity 0.4s ease-in;
+}
+
+.nav_item:nth-child(2n) {
+  justify-self: flex-end;
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateX(-500px);
+}
+
+.hidden:nth-child(2n) {
+  transform: translatex(500px);
+}
+
+.fly {
+  transform: translateY(-500px);
+  opacity: 0;
+}
+
+.nav_item:not(:last-child) {
+  margin-right: 100px;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  font-family: 'GetVoIP', Helvetica, sans-serif;
+  font-size: 100px;
+  line-height: 100px;
+  font-weight: normal;
+  overflow: hidden;
+  color: transparent;
+  -webkit-text-stroke: 2px #030117;
+}
+
+.outer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #030117;
+  transform: translateX(-100%);
+  -webkit-text-stroke: 2px #c4c3c1;
+}
+
+.inner {
+  display: inline-block;
+  transform: translateX(100%);
+}
+
+.outer,
+.inner {
+  transition: transform 0.25s linear;
+}
+
+.link:hover .outer,
+.link:hover .inner {
+  transform: none;
+}
+
+[data-animation='to-top'] .outer {
+  transform: translateY(100%);
+}
+
+[data-animation='to-top'] .inner {
+  transform: translateY(-100%);
+}
+
+.wrapper {
+  position: absolute;
+  bottom: 100%;
+  left: 12px;
+  display: grid;
+  row-gap: 10px;
+}
+
+.index {
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #030117;
+}
+
+.line {
+  width: 2px;
+  height: 48px;
+  background-color: #030117;
+  transition: height 0.25s linear;
+}
+
+.line_active {
+  height: 96px;
+}
+
+.scene {
+  position: absolute;
+}
+
+.selected {
+  z-index: 10;
 }
