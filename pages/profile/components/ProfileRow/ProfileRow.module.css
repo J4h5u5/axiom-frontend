@@ -18,7 +18,7 @@
     overflow: hidden;
   }
   
-  .profile__data_item::before {
+  /* .profile__data_item::before {
     position: absolute;
     content: "";
     width: 16px;
@@ -27,7 +27,7 @@
     background-repeat: no-repeat;
     right: 18px;
     top: 18px
-  }
+  } */
   
   .profile__data_item:last-child {
     margin-bottom: 0px;

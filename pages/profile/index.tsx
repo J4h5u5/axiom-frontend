@@ -19,18 +19,17 @@ const Profile = (props: Props) => {
                 <div className={styles.profile__header}>
                     <div className={styles.profile__logo}>
                         <ProfilePhoto />
-                        <div className={`${styles.profile__mili} text text`}>
+                        <div className={`${styles.profile__miles} text text`}>
                             {user?.miles || "0"}
                         </div>
                     </div>
                     <div className={styles.profile__data}>
-                        <ProfileRow value={`@${user.userName}`} />
+                        <ProfileRow value={`@${user.tgUserData?.username}`} />
                         <ProfileRow
                             value={`${user.tgUserData?.first_name || ""} ${
                                 user.tgUserData?.last_name || ""
                             }`}
                         />
-                        <ProfileRow value={"+995 558 14 58"} />
                     </div>
                 </div>
 
