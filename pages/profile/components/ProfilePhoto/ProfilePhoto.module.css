@@ -4,6 +4,7 @@
     border-radius: 50%;
     background-image: url('../../../../src/img/profile.png');
     background-size: cover;
+    overflow: hidden;
 }
 
 .container_profile_photo {
