@@ -18,7 +18,7 @@ const Profile = (props: Props) => {
             <div className={styles.profile}>
                 <div className={styles.profile__header}>
                     <div className={styles.profile__logo}>
-                        <ProfilePhoto photoUrl={"./src/img/profile.png"} />
+                        <ProfilePhoto />
                         <div className={`${styles.profile__mili} text text`}>
                             {user?.miles || "0"}
                         </div>
