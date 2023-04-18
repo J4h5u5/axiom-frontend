@@ -1,9 +1,8 @@
-.profile__referral {
+.profile__referralList {
     text-align: center;
-    margin-bottom: 24px;
 }
 
-.profile__referral_title {
+.profile__referralList_title {
     font-family: GetVoIP;
     font-weight: 700;
     font-size: 32px;
@@ -12,18 +11,17 @@
     margin-bottom: 8px;
 }
 
-.profile__referral_link {
-    color: #5A5C68;
+.profile__referralList_item {
     font-size: 18px;
     line-height: 130%;
     font-family: Cubenzis-Light;
 }
 
 @media (max-width: 576px) {
-    .profile__referral_title {
+    .profile__referralList_title {
         font-size: 18px;
     }
-    .profile__referral_link {
+    .profile__referralList_item {
         font-size: 16px;
     }
 }
