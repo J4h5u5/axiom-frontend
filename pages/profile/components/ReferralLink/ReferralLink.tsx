@@ -11,7 +11,7 @@ const ReferralLink = () => {
         Реферальная ссылка
             </div>
             <div className={styles.profile__referral_link}>
-                {`https://space-drops.io/${user.tgUserData?.id || ""}`}
+                {`https://space-drops.io?ref=${user.tgUserData?.id || ""}`}
             </div>
         </div>
     );

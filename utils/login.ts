@@ -19,7 +19,7 @@ export const login = (tgUserData: ITgUserData): Promise<void> => {
         const searchParams = new URLSearchParams(location.search);
         const refId = searchParams.get('ref');
 
-        if (refId) {
+        if (refId && refId !== responseData.data.user.referralId) {
             fetch(`${API_URL}/users/${refId}`, {
                 method: 'PATCH',
                 headers: {
