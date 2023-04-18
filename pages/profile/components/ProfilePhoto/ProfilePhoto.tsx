@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./ProfilePhoto.module.css";
+// @ts-ignore: Unreachable code error
 import Blockies from 'react-blockies';
 import { useUser } from "../../../../hooks/useUser";
 
