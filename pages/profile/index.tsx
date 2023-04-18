@@ -5,20 +5,13 @@ import { useUser } from "../../hooks/useUser";
 import ProfileRow from "./components/ProfileRow/ProfileRow";
 import ReferralLink from "./components/ReferralLink/ReferralLink";
 import ReferralList from "./components/ReferralList/ReferralList";
-import { useRouter } from "next/router";
 import styles from "./Profile.module.css";
+import withAuth from "../../hocs/WithAuth";
 
 type Props = {};
 
 const Profile = (props: Props) => {
-    const router = useRouter();
     const user = useUser();
-
-    React.useEffect(() => {
-        if (!user.authToken) {
-            router.push('/');
-        }
-    }, [user]);
 
     return (
         <MainContainer className="auth" backRoute="lounge">
@@ -48,4 +41,4 @@ const Profile = (props: Props) => {
     );
 };
 
-export default Profile;
+export default withAuth(Profile);

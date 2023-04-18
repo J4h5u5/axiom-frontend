@@ -1,11 +1,10 @@
 import React from "react";
 import MainContainer from "../../components/MainContainer/MainContainer";
-import { useRouter } from "next/router";
+import withAuth from "../../hocs/WithAuth";
 
 type Props = {};
 
 const Screen = (props: Props) => {
-    const router = useRouter();
 
     return (
         <MainContainer className="auth screen" backRoute="lounge">
@@ -230,4 +229,4 @@ const Screen = (props: Props) => {
     );
 };
 
-export default Screen;
+export default withAuth(Screen);
