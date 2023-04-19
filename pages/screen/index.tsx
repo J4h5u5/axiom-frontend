@@ -235,6 +235,7 @@ const Screen = (props: Props) => {
       </div>
       <Modal
         isOpen={isOpenModal}
+        ariaHideApp={false}
         style={{
           overlay: {
             backgroundColor: "none",
@@ -262,8 +263,9 @@ const Screen = (props: Props) => {
         <div className={`${styles.modal_content_desc} text-text`}>
           А мне пора на посадку…
         </div>
+        {/* // Нужно использовать компонент Image из next */}
         <div className={`${styles.modal_content_img}`}>
-          <Image src="modal_img.png" alt="modal picture" />
+          <img src="/modal_img.png" alt="modal picture" />
         </div>
       </Modal>
     </MainContainer>
