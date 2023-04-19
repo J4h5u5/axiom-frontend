@@ -469,6 +469,13 @@ a {
   color: rgba(255, 255, 255, 0.3);
 }
 
+@media (max-width: 576px) {
+  .ReactModal__Content {
+      padding: 16px !important;
+      border-radius: 8px;
+  }
+}
+
 .wrapper_departure {
   display: flex;
   justify-content: center;
@@ -488,6 +495,7 @@ a {
 
 .departure-board {
   display: inline-flex;
+  cursor: pointer;
 }
 
 .departure-board:last-of-type span:first-child,
@@ -578,7 +586,7 @@ a {
   }
   .letter {
     height: 30px;
-    width: 9px;
+    width: 8.5px;
     border: none;
   }
   .screen-title{
