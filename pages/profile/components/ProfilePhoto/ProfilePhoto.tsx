@@ -24,7 +24,7 @@ const ProfilePhoto = ({ photoUrl }: Props) => {
                     className="identicon"
                 />
             </div>
-            <div className={styles.profile_container_photo_camera}>
+            {/* <div className={styles.profile_container_photo_camera}>
                 <div>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
                         <path
@@ -37,7 +37,7 @@ const ProfilePhoto = ({ photoUrl }: Props) => {
                         />
                     </svg>
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 };

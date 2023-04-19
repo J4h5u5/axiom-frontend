@@ -19,6 +19,10 @@
   
 .profile__logo {
     margin-right: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
   
 .profile__data {
@@ -27,20 +31,19 @@
     flex: 1;
 }
   
-.profile__mili{
-    width: 128px;
-    height: 40px;
-    background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #B9B9B9;
-    background-blend-mode: soft-light, normal;
+.profile__miles{
+    padding-left: 16px;
+    padding-right: 16px;
+    background: #E8D32A;
     border: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: inset -4px -4px 8px #D6D6D6, inset 4px 4px 8px #939393;
+    box-shadow: inset -4px -4px 8px #FFF078, inset 4px 4px 8px #CAB82C;
     border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    display: inline-flex;
     font-family: Cubenzis-Light;
     font-size: 24px;
     line-height: 130%;
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
   
 @media (max-width: 576px) {
@@ -64,13 +67,5 @@
     }
     .profile__data {
       width: 100%;
-    }
-    .profile__mili {
-      background: #B9B9B9;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: inset -4px -4px 8px #A7A7A7, inset 4px 4px 8px #888A92;
-      border-radius: 8px;
-      width: 104px;
-      margin: 0 auto;
     }
 }
