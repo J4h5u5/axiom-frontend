@@ -8,6 +8,7 @@
 
 * {
   outline: none;
+  -webkit-tap-highlight-color: transparent;
 }
 
 @font-face { font-family: GetVoIP; src: url('../src/fonts/GetVoIP Grotesque.ttf'); }
