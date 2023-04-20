@@ -241,18 +241,9 @@ const Screen = (props: Props) => {
             backgroundColor: "none",
             zIndex: 1,
           },
-          content: {
-            maxWidth: "1112px",
-            height: "max-content",
-            margin: "0 auto",
-            inset: "100px 15px 0px 16px",
-            background: "#B9B9B9",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-            borderRadius: "16px",
-            padding: "48px",
-          },
         }}
         onRequestClose={onClick}
+        className={styles.modal_content}
       >
         <div className={`${styles.modal_content_title} text-text`}>
           Доброе утро, мои Герои!
