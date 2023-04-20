@@ -5,7 +5,30 @@
     background-image: url('../../../../src/img/profile.png');
     background-size: cover;
     overflow: hidden;
+    /* filter: hue-rotate(90deg); */
+    animation: colored 5s linear infinite;
 }
+
+@keyframes colored {
+    0% {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    20% {
+      -webkit-filter: hue-rotate(10deg);
+    }
+    40% {
+      -webkit-filter: hue-rotate(0deg);
+    }
+    60% {
+      -webkit-filter: hue-rotate(-10deg);
+    }
+    80% {
+      -webkit-filter: hue-rotate(-5deg);
+    }
+    100% {
+      -webkit-filter: hue-rotate(0deg);
+    }
+  }
 
 .container_profile_photo {
     background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #A3A2A0;
