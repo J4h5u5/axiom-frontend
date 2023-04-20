@@ -18,8 +18,8 @@ const ProfilePhoto = ({ photoUrl }: Props) => {
                     <div className={styles.profile_photo}>
                         <Blockies
                             seed={user.referralId}
-                            size={22}
-                            scale={5}
+                            size={11}
+                            scale={10}
                             color="#e8d32a"
                             bgColor="#fff"
                             spotColor="#929290"
