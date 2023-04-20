@@ -37,4 +37,4 @@ const Profile = (props: Props) => {
     );
 };
 
-export default withAuth(Profile);
+export default Profile;
