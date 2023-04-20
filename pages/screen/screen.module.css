@@ -1,0 +1,71 @@
+.modal_content_title {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 130%;
+  text-align: center;
+  letter-spacing: 0.02em;
+  font-family: GetVoIP;
+  margin-bottom: 16px;
+}
+
+.modal_content_desc {
+  font-family: Cubenzis-Light;
+  text-align: center;
+  letter-spacing: 0.02em;
+  font-size: 18px;
+  line-height: 130%;
+  margin-bottom: 8px;
+}
+
+.modal_content_img {
+  margin-top: 32px;
+}
+
+.modal_content {
+  max-width: 1112px;
+  max-height: 784px;
+  height: max-content;
+  margin: 0 auto;
+  inset: 100px 15px 0px 16px;
+  background: #B9B9B9;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 48px;
+  position: absolute;
+  overflow: auto;
+}
+
+.modal_content::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+  width: 0px;
+}
+
+.modal_content::-webkit-scrollbar-thumb {
+  background: transparent;
+  width: 0px;
+}
+
+.modal_content:focus-visible {
+  outline: none;
+}
+
+@media (max-width: 576px) {
+  .modal_content_title {
+    margin-bottom: 5px;
+    font-size: 24px;
+  }
+
+  .modal_content_desc{ 
+    margin-bottom: 5px;
+    font-size: 16px;
+  }
+
+  .modal_content_img {
+    margin-top: 16px;
+  }
+
+  .modal_content {
+    max-height: 650px;
+  }
+}
