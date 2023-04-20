@@ -2,6 +2,22 @@
     text-align: center;
 }
 
+.profile__referralList ul {
+    overflow: auto;
+    max-height: 170px;
+    height: 100%;
+}
+
+.profile__referralList ul::-webkit-scrollbar {
+    background: transparent;
+    width: 0px;
+}
+  
+.profile__referralList ul::-webkit-scrollbar-thumb {
+    background: transparent;
+    width: 0px;
+}
+
 .profile__referralList_title {
     font-family: GetVoIP;
     font-weight: 700;

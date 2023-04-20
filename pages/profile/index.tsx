@@ -19,9 +19,6 @@ const Profile = (props: Props) => {
                 <div className={styles.profile__header}>
                     <div className={styles.profile__logo}>
                         <ProfilePhoto />
-                        <div className={`${styles.profile__miles} text text`}>
-                            {user?.miles || "0"}
-                        </div>
                     </div>
                     <div className={styles.profile__data}>
                         <ProfileRow value={`@${user.tgUserData?.username}`} />
