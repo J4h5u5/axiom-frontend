@@ -1,11 +1,43 @@
 .profile_photo {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     background-image: url('../../../../src/img/profile.png');
     background-size: cover;
     overflow: hidden;
 }
+
+.profile_photo canvas {
+    filter: blur(0px);
+    animation: colored 7s linear infinite;
+}
+
+@keyframes colored {
+    0% {
+      -webkit-filter: hue-rotate(0deg);
+      transform: rotate(0);
+    }
+    20% {
+      -webkit-filter: hue-rotate(-5deg);
+      transform: rotate(0.7deg);
+    }
+    40% {
+      -webkit-filter: hue-rotate(-13deg);
+      transform: rotate(1deg);
+    }
+    60% {
+      -webkit-filter: hue-rotate(-25deg);
+      transform: rotate(0.5deg);
+    }
+    80% {
+      -webkit-filter: hue-rotate(-10deg);
+      transform: rotate(-0.2deg);
+    }
+    100% {
+      -webkit-filter: hue-rotate(0deg);
+      transform: rotate(0);
+    }
+  }
 
 .container_profile_photo {
     background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #A3A2A0;
@@ -14,9 +46,8 @@
     box-shadow: -4px -4px 16px #B0B0B0, 4px 4px 16px #66656B;
     border-radius: 100px;
     display: flex;
-    width: 128px;
-    height: 128px;
-    margin-bottom: 8px;
+    width: 120px;
+    height: 120px;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -30,8 +61,8 @@
     bottom: 5px;
     background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #B9B9B9;
     background-blend-mode: soft-light, normal;
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    box-shadow: -4px -4px 16px rgba(214, 214, 214, 0.5), 4px 4px 16px #939393;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: -4px -4px 16px #D6D6D6, 4px 4px 16px #939393;
     border-radius: 100px;
     display: flex;
     align-items: center;
@@ -44,4 +75,46 @@
     background-repeat: no-repeat;
     width: 32px;
     height: 32px;
+}
+
+.inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #E8D32A;
+    box-shadow: inset -4px -4px 8px #FFF078, inset 4px 4px 8px #CAB82C;
+    border-radius: 100px;
+    display: flex;
+    padding-right: 20px;
+}
+
+.wrapper {
+    background-blend-mode: soft-light, normal;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    box-shadow: -4px -4px 16px #D6D6D6, 4px 4px 16px #939393;
+    margin-bottom: 24px;
+    border-radius: 100px;
+    min-width: 218px;
+}
+
+.miles {
+    padding-top: 26px;
+    padding-bottom: 26px;
+    padding-left: 4px;
+    font-size: 24px;
+    line-height: 130%;
+    font-family: Cubenzis-Light;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.miles_avatar {
+    width: 32px;
+    height: 32px;
+    background-image: url('../../../../src/img/citizen_0.png');
+    background-repeat: no-repeat;
+    background-size: contain;
 }
