@@ -1,7 +1,7 @@
 import React, { memo, useEffect, useRef } from "react";
 import MainContainer from "../../components/MainContainer/MainContainer";
 import withAuth from "../../hocs/WithAuth";
-import { DepartureBoard } from "./departureBoard";
+import { DepartureBoard } from "../../components/departureBoard";
 
 type Props = {};
 
