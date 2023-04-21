@@ -13,16 +13,14 @@ const Screen = memo((props: Props) => {
         if (ref.current && !isRenderedTable.current) {
             const board = new DepartureBoard(
                 document.getElementById("departure-table"),
-                { rowCount: 6, letterCount: 40 }
+                { rowCount: 4, letterCount: 40 }
             );
 
             board.setValue([
-                "",
                 "TR300 Я ДУМАЮ ЧТО ВСЕ МОЗГОЕБСТВО",
                 "TR301 В ЗАЛЕ ОЖИДАНИЯ",
                 "TR302 ВЫПОЛНЯЕТ РОЛЬ ПОГРУЖЕНИЯ",
                 "TR303 КАК ЕЗДА В ЛИФТЕ",
-                "",
             ]);
 
             isRenderedTable.current = true;

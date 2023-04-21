@@ -656,3 +656,7 @@ a {
     -o-transition: -o-transform linear;
     transition: transform linear;
 }
+
+.row {
+  cursor: pointer;
+}
