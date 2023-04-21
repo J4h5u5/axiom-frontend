@@ -1,10 +1,33 @@
-import React from "react";
+import React, { memo, useEffect, useRef } from "react";
 import MainContainer from "../../components/MainContainer/MainContainer";
 import withAuth from "../../hocs/WithAuth";
+import { DepartureBoard } from "./departureBoard";
 
 type Props = {};
 
-const Screen = (props: Props) => {
+const Screen = memo((props: Props) => {
+    const ref = useRef<HTMLDivElement | null>();
+    const isRenderedTable = useRef<boolean>(false);
+
+    useEffect(() => {
+        if (ref.current && !isRenderedTable.current) {
+            const board = new DepartureBoard(
+                document.getElementById("departure-table"),
+                { rowCount: 6, letterCount: 40 }
+            );
+
+            board.setValue([
+                "",
+                "TR300 Я ДУМАЮ ЧТО ВСЕ МОЗГОЕБСТВО",
+                "TR301 В ЗАЛЕ ОЖИДАНИЯ",
+                "TR302 ВЫПОЛНЯЕТ РОЛЬ ПОГРУЖЕНИЯ",
+                "TR303 КАК ЕЗДА В ЛИФТЕ",
+                "",
+            ]);
+
+            isRenderedTable.current = true;
+        }
+    }, [ref]);
 
     return (
         <MainContainer className="auth screen" backRoute="lounge">
@@ -13,220 +36,14 @@ const Screen = (props: Props) => {
                     <h1 className="screen-title">
                         <span className="plane-departure" /> Departures
                     </h1>
-                    <div className="departure-board">
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                    </div>
-                    <div className="departure-board">
-                        <span className="animated letter letter-T"></span>
-                        <span className="animated letter letter-R"></span>
-                        <span className="animated letter letter-3"></span>
-                        <span className="animated letter letter-0"></span>
-                        <span className="animated letter letter-0"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-Я"></span>
-                        <span className="animated letter letter-blank"></span>
-                        <span className="animated letter letter-Д"></span>
-                        <span className="animated letter letter-У"></span>
-                        <span className="animated letter letter-М"></span>
-                        <span className="animated letter letter-А"></span>
-                        <span className="animated letter letter-Ю"></span>
-                        <span className="animated letter letter-blank"></span>
-                        <span className="animated letter letter-Ч"></span>
-                        <span className="animated letter letter-Т"></span>
-                        <span className="animated letter letter-О"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-В"></span>
-                        <span className="animated letter letter-С"></span>
-                        <span className="animated letter letter-Ё"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-М"></span>
-                        <span className="animated letter letter-О"></span>
-                        <span className="animated letter letter-З"></span>
-                        <span className="animated letter letter-Г"></span>
-                        <span className="animated letter letter-О"></span>
-                        <span className="animated letter letter-Ё"></span>
-                        <span className="animated letter letter-Б"></span>
-                        <span className="animated letter letter-С"></span>
-                        <span className="animated letter letter-Т"></span>
-                        <span className="animated letter letter-В"></span>
-                        <span className="animated letter letter-О"></span>
-                    </div>
-                    <div className="departure-board">
-                        <span className="animated letter letter-T"></span>
-                        <span className="animated letter letter-R"></span>
-                        <span className="animated letter letter-3"></span>
-                        <span className="animated letter letter-0"></span>
-                        <span className="animated letter letter-1"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-В"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-З"></span>
-                        <span className="animated letter letter-А"></span>
-                        <span className="animated letter letter-Л"></span>
-                        <span className="animated letter letter-Е"></span>
-                        <span className="animated letter letter-blank"></span>
-                        <span className="animated letter letter-О"></span>
-                        <span className="animated letter letter-Ж"></span>
-                        <span className="animated letter letter-И"></span>
-                        <span className="animated letter letter-Д"></span>
-                        <span className="animated letter letter-А"></span>
-                        <span className="animated letter letter-Н"></span>
-                        <span className="animated letter letter-И"></span>
-                        <span className="animated letter letter-Я"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                    </div>
-                    <div className="departure-board">
-                        <span className="animated letter letter-T"></span>
-                        <span className="animated letter letter-R"></span>
-                        <span className="animated letter letter-3"></span>
-                        <span className="animated letter letter-0"></span>
-                        <span className="animated letter letter-2"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-В"></span>
-                        <span className="animated letter letter-Ы"></span>
-                        <span className="animated letter letter-П"></span>
-                        <span className="animated letter letter-О"></span>
-                        <span className="animated letter letter-Л"></span>
-                        <span className="animated letter letter-Н"></span>
-                        <span className="animated letter letter-Я"></span>
-                        <span className="animated letter letter-Е"></span>
-                        <span className="animated letter letter-Т"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-Р"></span>
-                        <span className="animated letter letter-О"></span>
-                        <span className="animated letter letter-Л"></span>
-                        <span className="animated letter letter-Ь"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-П"></span>
-                        <span className="animated letter letter-О"></span>
-                        <span className="animated letter letter-Г"></span>
-                        <span className="animated letter letter-Р"></span>
-                        <span className="animated letter letter-У"></span>
-                        <span className="animated letter letter-Ж"></span>
-                        <span className="animated letter letter-Е"></span>
-                        <span className="animated letter letter-Н"></span>
-                        <span className="animated letter letter-И"></span>
-                        <span className="animated letter letter-Я"></span>
-                        <span className="letter letter-blank"></span>
-                    </div>
-                    <div className="departure-board">
-                        <span className="animated letter letter-T"></span>
-                        <span className="animated letter letter-R"></span>
-                        <span className="animated letter letter-3"></span>
-                        <span className="animated letter letter-0"></span>
-                        <span className="animated letter letter-3"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-К"></span>
-                        <span className="animated letter letter-А"></span>
-                        <span className="animated letter letter-К"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-И"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-Е"></span>
-                        <span className="animated letter letter-З"></span>
-                        <span className="animated letter letter-Д"></span>
-                        <span className="animated letter letter-А"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-В"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="animated letter letter-Л"></span>
-                        <span className="animated letter letter-И"></span>
-                        <span className="animated letter letter-Ф"></span>
-                        <span className="animated letter letter-Т"></span>
-                        <span className="animated letter letter-Е"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                    </div>
-                    <div className="departure-board">
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                        <span className="letter letter-blank"></span>
-                    </div>
+                    <div
+                        id="departure-table"
+                        ref={(elem) => (ref.current = elem)}
+                    ></div>
                 </div>
             </div>
         </MainContainer>
     );
-};
+});
 
 export default withAuth(Screen);
