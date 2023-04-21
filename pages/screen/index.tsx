@@ -44,4 +44,6 @@ const Screen = memo((props: Props) => {
     );
 });
 
+Screen.displayName = 'Screen';
+
 export default withAuth(Screen);

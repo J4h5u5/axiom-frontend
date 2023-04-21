@@ -3,7 +3,29 @@
 @tailwind utilities;
 
 :root {
-    --blackColor: #000000;
+  --blackColor: #000000;
+}
+
+* {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@font-face { font-family: GetVoIP; src: url('../src/fonts/GetVoIP Grotesque.ttf'); }
+
+@font-face {
+  font-family: Manifold;
+  src: url("../src/fonts/ManifoldExtendedCF-Light.woff2") format("woff2"),
+  url("../src/fonts/ManifoldExtendedCF-Light.woff") format("woff"),
+  url("../src/fonts/ManifoldExtendedCF-Light.eot") format("eot");
+  font-weight: 300;
+}
+@font-face {
+  font-family: Manifold;
+  src: url("../src/fonts/ManifoldExtendedCF-Regular.woff2") format("woff2"),
+  url("../src/fonts/ManifoldExtendedCF-Regular.woff") format("woff"),
+  url("../src/fonts/ManifoldExtendedCF-Regular.eot") format("eot");
+  font-weight: 400;
 }
 
 @font-face {
@@ -479,6 +501,13 @@ a {
     color: rgba(255, 255, 255, 0.3);
 }
 
+@media (max-width: 576px) {
+  .ReactModal__Content {
+      padding: 16px !important;
+      border-radius: 8px;
+  }
+}
+
 .wrapper_departure {
     display: flex;
     justify-content: center;
@@ -488,19 +517,29 @@ a {
 }
 
 .inner_departure {
-    display: flex;
-    flex-direction: column;
-    background: linear-gradient(
-            135.37deg,
-            rgba(0, 0, 0, 0.4) 4.29%,
-            rgba(255, 255, 255, 0.4) 95.6%
-        ),
-        #a3a2a0;
-    background-blend-mode: soft-light, normal;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: -4px -4px 16px #ced0d6, 4px 4px 16px #5f5c70;
-    border-radius: 16px;
-    padding: 8px;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135.37deg, rgba(0, 0, 0, 0.4) 4.29%, rgba(255, 255, 255, 0.4) 95.6%), #A3A2A0;
+  background-blend-mode: soft-light, normal;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  box-shadow: -4px -4px 16px #CED0D6, 4px 4px 16px #5F5C70;
+  border-radius: 16px;
+  padding: 8px;
+}
+
+.departure-board {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+.departure-board:last-of-type span:first-child,
+.departure-board:last-of-type span:first-child::after{
+  border-bottom-left-radius: 16px;
+}
+
+.departure-board:last-of-type span:last-child,
+.departure-board:last-of-type span:last-child::after{
+  border-bottom-right-radius: 16px;
 }
 
 .plane-departure {
@@ -513,7 +552,30 @@ a {
     background-repeat: no-repeat;
 }
 
-@media (min-width: 992px) and (max-width: 1200px) {
+@media (max-width: 700px){
+  .letter::before {
+    font-size: 6px;
+    height: 20px;
+    line-height: 28px;
+    border: none;
+  }
+  .letter::after {
+    font-size: 6px;
+    height: 30px;
+    line-height: 10px;
+  }
+  .letter {
+    height: 30px;
+    width: 8.5px;
+    border: none;
+  }
+  .screen-title{
+    font-size: 0.9em;
+  }
+  .plane-departure{
+    width: 30px;
+    height: 20px;
+  }
 }
 
 @media (max-width: 700px) {
