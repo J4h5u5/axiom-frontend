@@ -603,9 +603,9 @@ a {
 
 .departure-board span.letter {
     display: inline-block;
-    width: 1.4em;
+    width: 1em;
     margin: 0 0.1em;
-    height: 1.7em;
+    height: 1.3em;
     text-align: center;
     position: relative;
 }
@@ -662,15 +662,15 @@ a {
     display: block;
     position: absolute;
     top: 0em;
-    width: 1.4em;
-    height: 0.85em;
+    width: 1em;
+    height: 0.65em;
     margin: 0;
     overflow: hidden;
 }
 
 .departure-board span.text {
     width: 100%;
-    font-size: 1.3em;
+    /* font-size: 1.3em; */
 }
 
 .departure-board span.bottom {
@@ -679,7 +679,7 @@ a {
 
 .departure-board span.bottom span.text {
     position: relative;
-    top: -0.45em;
+    top: -0.65em;
 }
 
 .departure-board span.flap.falling {
