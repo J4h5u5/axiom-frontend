@@ -1,0 +1,43 @@
+.profile__referralList {
+    text-align: center;
+}
+
+.profile__referralList ul {
+    overflow: auto;
+    max-height: 170px;
+    height: 100%;
+}
+
+.profile__referralList ul::-webkit-scrollbar {
+    background: transparent;
+    width: 0px;
+}
+  
+.profile__referralList ul::-webkit-scrollbar-thumb {
+    background: transparent;
+    width: 0px;
+}
+
+.profile__referralList_title {
+    font-family: GetVoIP;
+    font-weight: 700;
+    font-size: 32px;
+    letter-spacing: 0.02em;
+    line-height: 130%;
+    margin-bottom: 8px;
+}
+
+.profile__referralList_item {
+    font-size: 18px;
+    line-height: 130%;
+    font-family: Cubenzis-Light;
+}
+
+@media (max-width: 576px) {
+    .profile__referralList_title {
+        font-size: 18px;
+    }
+    .profile__referralList_item {
+        font-size: 16px;
+    }
+}

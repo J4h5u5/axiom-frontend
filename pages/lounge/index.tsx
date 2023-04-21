@@ -2,19 +2,12 @@ import * as React from 'react';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import styles from './Lounge.module.css';
-import { useUser } from '../../hooks/useUser';
+import withAuth from '../../hocs/WithAuth';
 
 const LINK_ANIMATION_TIME = 250;
 
-export default function Lounge() {
+export const Lounge = () => {
     const router = useRouter();
-    const user = useUser();
-
-    React.useEffect(() => {
-        if (!user.authToken) {
-            router.push('/');
-        }
-    }, [user]);
 
     const links = [
         {
@@ -113,7 +106,7 @@ export default function Lounge() {
       );
   });
 
-  return user.authToken ? (
+  return (
       <main className={`view bg-bombay auth ${styles.main}`}>
           <section className={`${styles.container}`}>
               <ul className={`${styles.nav}`}>{linkItems}</ul>
@@ -131,13 +124,14 @@ export default function Lounge() {
               ></circle>
               <defs>
                   <radialGradient id="circleBg">
-                      <stop offset="50%" stop-color="rgb(3,1,23, 0.7)" />
-                      <stop offset="80%" stop-color="rgb(3,1,23, 0.5)" />
-                      <stop offset="100%" stop-color="rgb(3,1,23, 0.3)" />
+                      <stop offset="50%" stopColor="rgb(3,1,23, 0.7)" />
+                      <stop offset="80%" stopColor="rgb(3,1,23, 0.5)" />
+                      <stop offset="100%" stopColor="rgb(3,1,23, 0.3)" />
                   </radialGradient>
               </defs>
           </svg>
       </main>
-  ) :
-      null;
+  )
 }
+
+export default withAuth(Lounge);

@@ -6,6 +6,11 @@
   --blackColor: #000000;
 }
 
+* {
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
 @font-face { font-family: GetVoIP; src: url('../src/fonts/GetVoIP Grotesque.ttf'); }
 
 @font-face {
@@ -469,6 +474,13 @@ a {
   color: rgba(255, 255, 255, 0.3);
 }
 
+@media (max-width: 576px) {
+  .ReactModal__Content {
+      padding: 16px !important;
+      border-radius: 8px;
+  }
+}
+
 .wrapper_departure {
   display: flex;
   justify-content: center;
@@ -488,6 +500,7 @@ a {
 
 .departure-board {
   display: inline-flex;
+  cursor: pointer;
 }
 
 .departure-board:last-of-type span:first-child,
@@ -578,7 +591,7 @@ a {
   }
   .letter {
     height: 30px;
-    width: 9px;
+    width: 8.5px;
     border: none;
   }
   .screen-title{
@@ -2186,5 +2199,11 @@ a {
   100% {
     color: #e8d32a;
     transform: rotateX(360deg);
+  }
+}
+
+@media (max-width: 576px) {
+  .view {
+    padding: 26px 0;
   }
 }
