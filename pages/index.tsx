@@ -138,7 +138,7 @@ const Home: React.FC<{ fallback: Record<string, any> }>= ({ fallback }) => {
                                     controls
                                     poster="video_player_mock.png"
                                 >
-                                    <source src="tr300_1.mp4" type="video/mp4" />
+                                    <source src="TR_1.mp4" type="video/mp4" />
                                 Your browser doesn`&apos;`t support HTML5 video tag.
                                 </video>
                             </div>
