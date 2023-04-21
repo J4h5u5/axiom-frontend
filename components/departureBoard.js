@@ -1,4 +1,4 @@
-export var DepartureBoard = function (element, options) {
+export var DepartureBoard = function (element, options, onClickModal) {
     options = options || {};
 
     this._element = element;
@@ -16,6 +16,7 @@ export var DepartureBoard = function (element, options) {
 
         rowElement = document.createElement("div");
         rowElement.className = "row";
+        rowElement.addEventListener('click', onClickModal);
         element.appendChild(rowElement);
 
         for (var l = 0; l < letterCount; l++) {

@@ -527,21 +527,6 @@ a {
   padding: 8px;
 }
 
-.departure-board {
-  display: inline-flex;
-  cursor: pointer;
-}
-
-.departure-board:last-of-type span:first-child,
-.departure-board:last-of-type span:first-child::after{
-  border-bottom-left-radius: 16px;
-}
-
-.departure-board:last-of-type span:last-child,
-.departure-board:last-of-type span:last-child::after{
-  border-bottom-right-radius: 16px;
-}
-
 .plane-departure {
     display: inline-block;
     background-image: url("../src/img/plane-departure.svg");
@@ -618,9 +603,9 @@ a {
 
 .departure-board span.letter {
     display: inline-block;
-    width: 1em;
+    width: 1.4em;
     margin: 0 0.1em;
-    height: 1.3em;
+    height: 1.7em;
     text-align: center;
     position: relative;
 }
@@ -677,14 +662,15 @@ a {
     display: block;
     position: absolute;
     top: 0em;
-    width: 1em;
-    height: 0.65em;
+    width: 1.4em;
+    height: 0.85em;
     margin: 0;
     overflow: hidden;
 }
 
 .departure-board span.text {
     width: 100%;
+    font-size: 1.3em;
 }
 
 .departure-board span.bottom {
@@ -693,7 +679,7 @@ a {
 
 .departure-board span.bottom span.text {
     position: relative;
-    top: -0.65em;
+    top: -0.45em;
 }
 
 .departure-board span.flap.falling {
